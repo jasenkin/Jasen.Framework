@@ -1,0 +1,94 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{4D27D394-3353-4207-A823-CF6286F5AB79}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Jasen.Framework.SchemaProvider</RootNamespace>
+    <AssemblyName>Jasen.Framework.SchemaProvider</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AttributeUtility.cs" />
+    <Compile Include="OperationType.cs" />
+    <Compile Include="CodeProviders\OledbConverter.cs" />
+    <Compile Include="CodeProviders\OracleConverter.cs" />
+    <Compile Include="CodeProviders\SqliteTypeConverter.cs" />
+    <Compile Include="CodeProviders\SqlServerConverter.cs" />
+    <Compile Include="CodeProviders\CodeProvider.cs" />
+    <Compile Include="Core\CommandExecutor\CommandExecutor.cs" />
+    <Compile Include="Core\CommandExecutor\ITableCommandExecutor.cs" />
+    <Compile Include="Core\CommandExecutor\IViewCommandExecutor.cs" />
+    <Compile Include="Core\DatabaseConfig.cs" />
+    <Compile Include="Core\Databases\Database.cs" />
+    <Compile Include="Core\Databases\IDatabase.cs" />
+    <Compile Include="Core\Exception\CommandEventArgs.cs" />
+    <Compile Include="Core\Exception\CommandException.cs" />
+    <Compile Include="Core\Exception\CommandOperation.cs" />
+    <Compile Include="Core\Exception\ConnectionEventArgs.cs" />
+    <Compile Include="Core\Exception\ConnectionException.cs" />
+    <Compile Include="Core\Exception\ConnectionOperation.cs" />
+    <Compile Include="Core\Exception\DatabaseHandler.cs" />
+    <Compile Include="Core\Exception\ExceptionManager.cs" />
+    <Compile Include="PluginManager.cs" />
+    <Compile Include="ProviderAttribute.cs" />
+    <Compile Include="ProviderInfo.cs" />
+    <Compile Include="StringExtension.cs" />
+    <Compile Include="DatabaseProvider.cs" />
+    <Compile Include="MetaData\ForeignKey.cs" />
+    <Compile Include="IDatabaseProvider.cs" />
+    <Compile Include="MetaData\IdentityKey.cs" />
+    <Compile Include="MetaData\PrimaryKey.cs" />
+    <Compile Include="MetaData\ProcedureParameter.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Resources\MsgResource.Designer.cs" />
+    <Compile Include="MetaData\TableColumn.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\MsgResource.resx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\MsgResource.zh-cn.resx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

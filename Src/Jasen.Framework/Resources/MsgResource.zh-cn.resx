@@ -1,0 +1,225 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="BeginTransactionFailed" xml:space="preserve">
+    <value>开始事务事务回滚失败!</value>
+  </data>
+  <data name="ChangeDatabaseFailed" xml:space="preserve">
+    <value>改换数据库失败!</value>
+  </data>
+  <data name="CloseDatabaseFailed" xml:space="preserve">
+    <value>关闭数据库连接失败!</value>
+  </data>
+  <data name="ColumnNameRequired" xml:space="preserve">
+    <value>Column name required.</value>
+  </data>
+  <data name="CommandTextMissing" xml:space="preserve">
+    <value>缺少CommandText(sql语句或存储过程)。</value>
+  </data>
+  <data name="CommitTransactionFailed" xml:space="preserve">
+    <value>提交事务失败!</value>
+  </data>
+  <data name="ConditionMissing" xml:space="preserve">
+    <value>缺少查询条件。</value>
+  </data>
+  <data name="ConnectionStringMissing" xml:space="preserve">
+    <value>连接字符串不允许为空!</value>
+  </data>
+  <data name="DatabaseInstanceNotExisting" xml:space="preserve">
+    <value>Database 实例不存在（即为null）！</value>
+  </data>
+  <data name="EmptyEntity" xml:space="preserve">
+    <value>Entity 不允許為空，請初始化Entity .</value>
+  </data>
+  <data name="EntityMustContainPrimaryKey" xml:space="preserve">
+    <value>实体须有主键。</value>
+  </data>
+  <data name="ExecuteNonQueryFailed" xml:space="preserve">
+    <value>Execute NonQuery 失败!</value>
+  </data>
+  <data name="ExecuteReaderFailed" xml:space="preserve">
+    <value>Execute Reader 失败!</value>
+  </data>
+  <data name="ExecuteScalarFailed" xml:space="preserve">
+    <value>Execute Scalar 失败!</value>
+  </data>
+  <data name="GetDataSetFailed" xml:space="preserve">
+    <value>获取 DataSet 失败!</value>
+  </data>
+  <data name="GetDataTableFailed" xml:space="preserve">
+    <value>获取 DataTable 失败!</value>
+  </data>
+  <data name="IDAndPKOfEntityMissing" xml:space="preserve">
+    <value>父实体缺少ID和主键。</value>
+  </data>
+  <data name="IdentityOfEntityMissing" xml:space="preserve">
+    <value>父实体须有ID。</value>
+  </data>
+  <data name="InitializeGatewayFailed" xml:space="preserve">
+    <value>Initialize gateway failed.CommandExecutor is null.</value>
+  </data>
+  <data name="InitializeGatewayFailedConnectionString" xml:space="preserve">
+    <value>初始化数据入口失败 !连接字符串不允许为空!</value>
+  </data>
+  <data name="InitializeGatewayFailedEntity" xml:space="preserve">
+    <value>初始化数据入口失败 !Entity 不允许为空!</value>
+  </data>
+  <data name="InvalidArguments" xml:space="preserve">
+    <value>非法參數，參數不允許為 null 。</value>
+  </data>
+  <data name="InvalidDatabaseObject" xml:space="preserve">
+    <value>Invalid database object.</value>
+  </data>
+  <data name="InvalidEntityConfig" xml:space="preserve">
+    <value>Entity 必須有TableAttribute修飾，且 TableName選項不允許為 null .</value>
+  </data>
+  <data name="OpenDatabaseFailed" xml:space="preserve">
+    <value>连接数据库失败!</value>
+  </data>
+  <data name="OracleSequenceMissing" xml:space="preserve">
+    <value>Must provide a sequence for the identity column in oracle.</value>
+  </data>
+  <data name="ParentEntityMustContainPrimaryKey" xml:space="preserve">
+    <value>父实体须有主键。</value>
+  </data>
+  <data name="PrimaryKeyMissing" xml:space="preserve">
+    <value>实体须有主键。</value>
+  </data>
+  <data name="PropertyTypeMustMatchAssociationType" xml:space="preserve">
+    <value>属性类别（数组或非数组）必须与关系类型相符。</value>
+  </data>
+  <data name="RelationAttributeShouldHasAForeignKey" xml:space="preserve">
+    <value>在多對一的關系中，RelationAttribute 必須指定外鍵。</value>
+  </data>
+  <data name="RollbackTransactionFailed" xml:space="preserve">
+    <value>事务回滚失败!</value>
+  </data>
+  <data name="SameArgumentTypeRequired" xml:space="preserve">
+    <value>所有参数类型必须一致！</value>
+  </data>
+  <data name="ShouldBeginTransaction" xml:space="preserve">
+    <value>必须先开始一个事务。</value>
+  </data>
+  <data name="SortedOrderRequired" xml:space="preserve">
+    <value>Sorted order required.</value>
+  </data>
+  <data name="TransactionNotExisting" xml:space="preserve">
+    <value>事务不存在！</value>
+  </data>
+</root>
