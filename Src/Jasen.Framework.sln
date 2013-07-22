@@ -12,7 +12,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Jasen.Framework.CodeGenerator", "Jasen.Framework.CodeGenerator\Jasen.Framework.CodeGenerator.csproj", "{A5B2CBFD-53BF-426A-8BB7-378D7208D103}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Jasen.Framework.ProviderPlugins", "Jasen.Framework.ProviderPlugins", "{8A84FC40-4F0D-4775-9C9A-DF20EC38FEAE}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ProviderPlugins", "ProviderPlugins", "{8A84FC40-4F0D-4775-9C9A-DF20EC38FEAE}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Jasen.Framework.SchemaProvider", "Jasen.Framework.SchemaProvider\Jasen.Framework.SchemaProvider.csproj", "{4D27D394-3353-4207-A823-CF6286F5AB79}"
 EndProject
@@ -29,6 +29,10 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Jasen.Framework.Serialization", "Jasen.Framework.Serialization\Jasen.Framework.Serialization.csproj", "{A158E58B-8C82-4E9C-A975-131F0986EBF4}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Jasen.Framework.MySqlSchemaProvider", "Jasen.Framework.MySqlSchemaProvider\Jasen.Framework.MySqlSchemaProvider.csproj", "{9DD13B4C-AAD5-4D4E-9935-0EC8E95DAD07}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WpfProviderPlugins", "WpfProviderPlugins", "{A10A2D79-3504-4C18-9259-88063FA755A3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Jasen.Framework.WpfProviderPlugins", "Jasen.Framework.WpfProviderPlugins\Jasen.Framework.WpfProviderPlugins.csproj", "{B6B05B4E-D15C-403C-91F4-84938A4F1F9E}"
 EndProject
 Global
 	GlobalSection(TestCaseManagementSettings) = postSolution
@@ -143,6 +147,16 @@ Global
 		{9DD13B4C-AAD5-4D4E-9935-0EC8E95DAD07}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{9DD13B4C-AAD5-4D4E-9935-0EC8E95DAD07}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{9DD13B4C-AAD5-4D4E-9935-0EC8E95DAD07}.Release|x86.ActiveCfg = Release|Any CPU
+		{B6B05B4E-D15C-403C-91F4-84938A4F1F9E}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{B6B05B4E-D15C-403C-91F4-84938A4F1F9E}.Debug|Mixed Platforms.ActiveCfg = Debug|x86
+		{B6B05B4E-D15C-403C-91F4-84938A4F1F9E}.Debug|Mixed Platforms.Build.0 = Debug|x86
+		{B6B05B4E-D15C-403C-91F4-84938A4F1F9E}.Debug|x86.ActiveCfg = Debug|x86
+		{B6B05B4E-D15C-403C-91F4-84938A4F1F9E}.Debug|x86.Build.0 = Debug|x86
+		{B6B05B4E-D15C-403C-91F4-84938A4F1F9E}.Release|Any CPU.ActiveCfg = Release|x86
+		{B6B05B4E-D15C-403C-91F4-84938A4F1F9E}.Release|Mixed Platforms.ActiveCfg = Release|x86
+		{B6B05B4E-D15C-403C-91F4-84938A4F1F9E}.Release|Mixed Platforms.Build.0 = Release|x86
+		{B6B05B4E-D15C-403C-91F4-84938A4F1F9E}.Release|x86.ActiveCfg = Release|x86
+		{B6B05B4E-D15C-403C-91F4-84938A4F1F9E}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -157,5 +171,6 @@ Global
 		{D765C205-D8AA-43C8-BA23-5A66EC91FC6F} = {8A84FC40-4F0D-4775-9C9A-DF20EC38FEAE}
 		{A158E58B-8C82-4E9C-A975-131F0986EBF4} = {8A84FC40-4F0D-4775-9C9A-DF20EC38FEAE}
 		{9DD13B4C-AAD5-4D4E-9935-0EC8E95DAD07} = {8A84FC40-4F0D-4775-9C9A-DF20EC38FEAE}
+		{B6B05B4E-D15C-403C-91F4-84938A4F1F9E} = {A10A2D79-3504-4C18-9259-88063FA755A3}
 	EndGlobalSection
 EndGlobal
