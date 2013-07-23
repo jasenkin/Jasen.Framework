@@ -1,72 +1,139 @@
 ﻿<Window x:Class="Jasen.Framework.WpfProviderPlugins.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Background="{DynamicResource WindowBackgroundBrush}"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:cmd="clr-namespace:GalaSoft.MvvmLight.Command;assembly=GalaSoft.MvvmLight.Extras.WPF4"
+        xmlns:interactivity="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
+        xmlns:res="clr-namespace:Jasen.Framework.WpfProviderPlugins.Languages"
+        xmlns:viewModel="clr-namespace:Jasen.Framework.WpfProviderPlugins.PresentationLayer.ViewModels"     
+        Background="{DynamicResource WindowBackgroundBrush}"        
         SizeToContent="Height"
-    Title="Code generator" MinHeight="330" Width="732" mc:Ignorable="d" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" d:DesignHeight="514">
-    <StackPanel>
-        <Border Background="White" Height="30" BorderBrush="Black" BorderThickness="0,0,0,1">
-           
-        </Border>
+        Title="Code generator" MinHeight="330" Width="732" mc:Ignorable="d" d:DesignHeight="514" WindowStyle="SingleBorderWindow" WindowStartupLocation="CenterScreen">
+    
+    <Window.DataContext>
+        <viewModel:MainViewModel></viewModel:MainViewModel>
+    </Window.DataContext>
+    
+    <Grid x:Name="LayoutRoot">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"></RowDefinition>
+        </Grid.RowDefinitions>
 
-        <Grid Height="386">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*" />
-                <ColumnDefinition Width="*" />
-                <ColumnDefinition Width="*" />
-            </Grid.ColumnDefinitions>
+        <Menu Height="30" Name="menu1" VerticalAlignment="Top" BorderThickness="2"
+              Foreground="White" FontSize="16" FontWeight="Bold">
+            <Menu.Background>
+                <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
+                    <GradientStop Color="#FF474747" Offset="0.528"/>
+                    <GradientStop Color="#FF6A85D8" Offset="0.01"/>
+                    <GradientStop Color="#FF3464C4" Offset="1"/>
+                    <GradientStop Color="#FF202E7E" Offset="1"/>
+                </LinearGradientBrush>
+            </Menu.Background>
+            <Menu.BitmapEffect>
+                <DropShadowBitmapEffect />
+            </Menu.BitmapEffect>
 
-            <StackPanel Margin="10,10,10,10" Grid.Column="1">
-                <ComboBox Height="22" Margin="0,0,0,5" x:Name="comboBox" DisplayMemberPath="Name" SelectedIndex="0" />
-                <ListBox Height="286" x:Name="listBox" DisplayMemberPath="Name"  BorderBrush="Black"/>
-            </StackPanel>
-            <StackPanel Margin="10,10,10,10" Grid.Column="0">
-                <Button Content="Button" Margin="0,0,0,2.5" Height="22" />
-                <ToggleButton Content="ToggleButton" Margin="0,0,0,5" Height="22" />
-                <CheckBox Content="CheckBox" IsChecked="True"/>
-                <CheckBox Content="CheckBox - Disabled" IsEnabled="False" Margin="0,0,0,5" />
+            <MenuItem Header="{x:Static res:SystemResource.File}" >
+                <MenuItem Width="130"  Header="{x:Static res:SystemResource.Open}"  Name="miOpen" Command="{Binding OpenCommand}" />
+                <MenuItem Width="130"  Header="{x:Static res:SystemResource.Close}" Name="miClose"  Command="{Binding CloseCommand}" />
+                <MenuItem Width="130"  Header="{x:Static res:SystemResource.File}"  Name="miConnect" />
+            </MenuItem>
 
-                <RadioButton Content="RadioButton" IsChecked="True"/>
-                <RadioButton Content="RadioButton" />
-                <RadioButton Content="RadioButton - Disabled" IsEnabled="False" Margin="0,0,0,5" />
+            <MenuItem Header="{x:Static res:SystemResource.Edit}"> 
+            </MenuItem>
 
-                <Slider x:Name="slider" Minimum="0" Maximum="100" Value="50" Margin="0,0,0,2.5" />
-                <ProgressBar Minimum="0" Maximum="100" Value="{Binding ElementName=slider, Path=Value}" Height="22" Margin="0,0,0,5" />
+            <MenuItem Header="{x:Static res:SystemResource.View}">
+                <MenuItem Width="130"  Header="中文" Command="{Binding OpenCommand}"  />
+            </MenuItem>
 
-                <TextBox Text="TextBox" />
-            </StackPanel>
+            <MenuItem Header="{x:Static res:SystemResource.Help}">
+                <MenuItem Width="130"  Header="{x:Static res:SystemResource.SystemInfo}"  Command="{Binding OpenSystemInfoWindowCommand}"  />
+            </MenuItem>
+        </Menu>
+        <StackPanel Grid.Row="1">
+            <Border Background="White" Height="1" BorderBrush="Black" BorderThickness="0,0,0,1">
+            </Border>
 
-            <TabControl Grid.Column="2">
-                <TabItem Header="Tab #1">
-                    <Grid>
-                        <Expander IsExpanded="True" Header="Expander" Margin="8,8,8,8">
-                            <TreeView HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Width="Auto" Height="215"  >
-                                <TreeViewItem Header="TreeViewItem #1"/>
-                                <TreeViewItem Header="TreeViewItem #2" IsExpanded="True">
-                                    <TreeViewItem Header="TreeViewItem #3"/>
-                                    <TreeViewItem Header="TreeViewItem #4"/>
-                                </TreeViewItem>
-                                <TreeViewItem Header="TreeViewItem #5"/>
-                                <TreeViewItem Header="TreeViewItem #6">
-                                    <TreeViewItem Header="TreeViewItem #7">
-                                        <TreeViewItem Header="TreeViewItem #8"/>
-                                        <TreeViewItem Header="TreeViewItem #9"/>
+            <Grid Height="386">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <StackPanel Margin="10,10,10,10" Grid.Column="1">
+                    <ComboBox Height="22" Margin="0,0,0,5" x:Name="cboNames"
+                          DisplayMemberPath="Data"  SelectedIndex="0"
+                          ItemsSource="{Binding Path= ObservComboData}"
+                          SelectedItem="{Binding Path= SelectedTemplate, Mode=TwoWay}">
+                        <interactivity:Interaction.Triggers>
+                            <interactivity:EventTrigger EventName="SelectionChanged">
+                                <cmd:EventToCommand Command="{Binding CboChangedCommand, Mode=OneWay}"
+                                            CommandParameter="{Binding SelectedItem, ElementName=cboNames, Mode=OneWay}"
+                                            MustToggleIsEnabledValue="True"/>
+                            </interactivity:EventTrigger>
+                        </interactivity:Interaction.Triggers>
+                    </ComboBox>
+                    <ListBox Margin="0,60" Height="286" x:Name="listBox" ItemsSource="{Binding Path=ObservComboData, Mode=OneWay}" DisplayMemberPath="Data"  BorderBrush="Black"/>
+                </StackPanel>
+                <StackPanel Margin="10,10,10,10" Grid.Column="0">
+                    <Button Content="Button" Margin="0,0,0,2.5" Height="22" />
+                    <ToggleButton Content="ToggleButton" Margin="0,0,0,5" Height="22" />
+                    <CheckBox Content="CheckBox" IsChecked="True"/>
+                    <CheckBox Content="CheckBox - Disabled" IsEnabled="False" Margin="0,0,0,5" />
+
+                    <RadioButton Content="RadioButton" IsChecked="True"/>
+                    <RadioButton Content="RadioButton" />
+                    <RadioButton Content="RadioButton - Disabled" IsEnabled="False" Margin="0,0,0,5" />
+
+                    <Slider x:Name="slider" Minimum="0" Maximum="100" Value="50" Margin="0,0,0,2.5" />
+                    <ProgressBar Minimum="0" Maximum="100" Value="{Binding ElementName=slider, Path=Value}" Height="22" Margin="0,0,0,5" />
+
+                    <TextBox Text="TextBox" />
+                </StackPanel>
+
+                <TabControl Grid.Column="2">
+                    <TabItem Header="Tab #1">
+                        <Grid>
+                            <Expander IsExpanded="True" Header="Expander" Margin="8,8,8,8">
+                                <TreeView HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Width="Auto" Height="215"  >
+                                    <TreeViewItem Header="TreeViewItem #1"/>
+                                    <TreeViewItem Header="TreeViewItem #2" IsExpanded="True">
+                                        <TreeViewItem Header="TreeViewItem #3"/>
+                                        <TreeViewItem Header="TreeViewItem #4"/>
                                     </TreeViewItem>
-                                </TreeViewItem>
-                            </TreeView>
-                        </Expander>
-                    </Grid>
-                </TabItem>
-                <TabItem Header="Tab #2">
-                    <StackPanel HorizontalAlignment="Left" VerticalAlignment="Top">
-                        <TextBlock Text="Item #1" />
-                        <TextBlock Text="Item #2" />
-                        <TextBlock Text="Item #3" />
-                        <TextBlock Text="Item #4" />
-                    </StackPanel>
-                </TabItem>
+                                    <TreeViewItem Header="TreeViewItem #5"/>
+                                    <TreeViewItem Header="TreeViewItem #6">
+                                        <TreeViewItem Header="TreeViewItem #7">
+                                            <TreeViewItem Header="TreeViewItem #8"/>
+                                            <TreeViewItem Header="TreeViewItem #9"/>
+                                        </TreeViewItem>
+                                    </TreeViewItem>
+                                </TreeView>
+                            </Expander>
+                        </Grid>
+                    </TabItem>
+                    <TabItem Header="Tab #2">
+                        <StackPanel HorizontalAlignment="Left" VerticalAlignment="Top">
+                            <TextBlock Text="Item #1" />
+                            <TextBlock Text="Item #2" />
+                            <TextBlock Text="Item #3" />
+                            <TextBlock Text="Item #4" />
+                        </StackPanel>
+                    </TabItem>
 
-            </TabControl>
-        </Grid>
-    </StackPanel>
+                </TabControl>
+            </Grid>
+        </StackPanel>
+        <StatusBar Grid.Row="2" Margin="0,0,0,-3" Name="sbMain" Height="28" VerticalAlignment="Bottom">
+            <StatusBarItem Name="sbiContent" Background="DarkGray"></StatusBarItem>
+        </StatusBar>
+
+    </Grid>
+
+
+  
 </Window>

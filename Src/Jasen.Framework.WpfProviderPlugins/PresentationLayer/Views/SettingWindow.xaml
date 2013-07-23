@@ -1,0 +1,8 @@
+﻿<Window x:Class="Jasen.Framework.WpfProviderPlugins.PresentationLayer.Views.SettingWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="SettingWindow" Height="300" Width="300">
+    <Grid>
+        
+    </Grid>
+</Window>
