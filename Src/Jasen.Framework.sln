@@ -1,8 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Jasen.Framework", "Jasen.Framework\Jasen.Framework.csproj", "{CADBEAC7-3B1E-4BE2-97B4-EC8AFD1B6BCE}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{7AE555E2-346A-4900-826C-5D6D7ED96B36}"
 	ProjectSection(SolutionItems) = preProject
 		Jasen.Framework.vsmdi = Jasen.Framework.vsmdi
@@ -47,16 +45,6 @@ Global
 		Release|x86 = Release|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{CADBEAC7-3B1E-4BE2-97B4-EC8AFD1B6BCE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{CADBEAC7-3B1E-4BE2-97B4-EC8AFD1B6BCE}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{CADBEAC7-3B1E-4BE2-97B4-EC8AFD1B6BCE}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
-		{CADBEAC7-3B1E-4BE2-97B4-EC8AFD1B6BCE}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
-		{CADBEAC7-3B1E-4BE2-97B4-EC8AFD1B6BCE}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{CADBEAC7-3B1E-4BE2-97B4-EC8AFD1B6BCE}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{CADBEAC7-3B1E-4BE2-97B4-EC8AFD1B6BCE}.Release|Any CPU.Build.0 = Release|Any CPU
-		{CADBEAC7-3B1E-4BE2-97B4-EC8AFD1B6BCE}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
-		{CADBEAC7-3B1E-4BE2-97B4-EC8AFD1B6BCE}.Release|Mixed Platforms.Build.0 = Release|Any CPU
-		{CADBEAC7-3B1E-4BE2-97B4-EC8AFD1B6BCE}.Release|x86.ActiveCfg = Release|Any CPU
 		{A5B2CBFD-53BF-426A-8BB7-378D7208D103}.Debug|Any CPU.ActiveCfg = Debug|x86
 		{A5B2CBFD-53BF-426A-8BB7-378D7208D103}.Debug|Mixed Platforms.ActiveCfg = Debug|x86
 		{A5B2CBFD-53BF-426A-8BB7-378D7208D103}.Debug|Mixed Platforms.Build.0 = Debug|x86
