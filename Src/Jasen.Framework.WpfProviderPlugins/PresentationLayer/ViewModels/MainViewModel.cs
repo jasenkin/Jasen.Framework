@@ -94,8 +94,9 @@ namespace Jasen.Framework.WpfProviderPlugins.PresentationLayer.ViewModels
         }
 
         public void Open()
-        { 
-            
+        {
+            SettingWindow window = new SettingWindow();
+            window.ShowDialog();
         }
 
         public void OnOpenSystemInfoWindow()

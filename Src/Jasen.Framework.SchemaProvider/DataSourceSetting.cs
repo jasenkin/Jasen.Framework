@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using Jasen.Framework.Serialization;
 
-namespace Jasen.Framework.CodeGenerator
+namespace Jasen.Framework.SchemaProvider
 { 
     [Serializable]
     public class DataSource 

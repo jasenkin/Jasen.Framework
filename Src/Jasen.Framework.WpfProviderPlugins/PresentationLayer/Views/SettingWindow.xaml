@@ -1,8 +1,68 @@
 ﻿<Window x:Class="Jasen.Framework.WpfProviderPlugins.PresentationLayer.Views.SettingWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:res="clr-namespace:Jasen.Framework.WpfProviderPlugins.Languages"
+        xmlns:cmd="clr-namespace:GalaSoft.MvvmLight.Command;assembly=GalaSoft.MvvmLight.Extras.WPF4"
+        xmlns:interactivity="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
+        xmlns:viewModel="clr-namespace:Jasen.Framework.WpfProviderPlugins.PresentationLayer.ViewModels"     
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="SettingWindow" Height="300" Width="300">
-    <Grid>
-        
+        Title="SettingWindow" Width="606" WindowStartupLocation="CenterOwner" WindowStyle="ToolWindow" ResizeMode="NoResize" 
+        mc:Ignorable="d" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" d:DesignHeight="229" SizeToContent="Height">
+    <Window.DataContext>
+        <viewModel:SettingViewModel></viewModel:SettingViewModel>
+    </Window.DataContext>
+    <Grid x:Name="LayoutRoot" >
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="100"/> 
+            <ColumnDefinition Width="150*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20"></RowDefinition>
+            <RowDefinition Height="30"></RowDefinition>
+            <RowDefinition Height="30"></RowDefinition>
+            <RowDefinition Height="60"></RowDefinition>
+            <RowDefinition Height="10"></RowDefinition>
+            <RowDefinition Height="30"></RowDefinition>
+        </Grid.RowDefinitions>
+        <TextBlock Grid.Row="1" Text="{x:Static res:SystemResource.ProviderName}" TextAlignment="Right"></TextBlock>
+        <TextBlock Grid.Row="2" Text="{x:Static res:SystemResource.ConnectionName}" TextAlignment="Right"></TextBlock>
+        <TextBlock Grid.Row="3" Text="{x:Static res:SystemResource.ConnectionStringName}" TextAlignment="Right"></TextBlock>
+        <StackPanel Margin="10,0,10,0" Grid.Row="1" Grid.Column="1">
+            <ComboBox Height="22" Margin="0,0,0,0" x:Name="cboProviderNames"
+                          DisplayMemberPath="Name"  SelectedIndex="0"
+                          ItemsSource="{Binding Path= Providers}"
+                          SelectedItem="{Binding Path= SelectedProvider, Mode=TwoWay}">
+                <interactivity:Interaction.Triggers>
+                    <interactivity:EventTrigger EventName="SelectionChanged">
+                        <cmd:EventToCommand Command="{Binding ProviderSelectedItemChanged, Mode=OneWay}"
+                                            CommandParameter="{Binding SelectedItem, ElementName=cboProviderNames, Mode=OneWay}"
+                                            MustToggleIsEnabledValue="True"/>
+                    </interactivity:EventTrigger>
+                </interactivity:Interaction.Triggers>
+            </ComboBox> 
+        </StackPanel>
+        <StackPanel Margin="10,0,10,0" Grid.Row="2" Grid.Column="1">
+            <ComboBox Height="22" Margin="0,0,0,0" x:Name="cboConnectionAliaNames"
+                          DisplayMemberPath="Name"  SelectedIndex="0"
+                          ItemsSource="{Binding Path= DataSources}"
+                          SelectedItem="{Binding Path= SelectedDataSource, Mode=TwoWay}">
+                <interactivity:Interaction.Triggers>
+                    <interactivity:EventTrigger EventName="SelectionChanged">
+                        <cmd:EventToCommand Command="{Binding SelectedDataSource, Mode=OneWay}"
+                                            CommandParameter="{Binding SelectedItem, ElementName=cboConnectionAliaNames, Mode=OneWay}"
+                                            MustToggleIsEnabledValue="True"/>
+                    </interactivity:EventTrigger>
+                </interactivity:Interaction.Triggers>
+            </ComboBox> 
+        </StackPanel>
+        <RichTextBox Margin="10,0,10,0" Grid.Row="3" Grid.Column="1" />
+        <Grid Grid.Row="6" Grid.ColumnSpan="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="280"></ColumnDefinition>
+                <ColumnDefinition Width="130"></ColumnDefinition>
+                <ColumnDefinition Width="130"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Button  Grid.Column="1" Command="{Binding SaveCommand}"  Content="{x:Static res:SystemResource.SettingSave}" Width="100" Height="26"/>
+            <Button  Grid.Column="2" Command="{Binding CancelCommand}"  Content="{x:Static res:SystemResource.SettingCancel}" Width="100" Height="26" />
+        </Grid>
     </Grid>
 </Window>

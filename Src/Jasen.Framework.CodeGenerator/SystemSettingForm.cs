@@ -7,6 +7,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using Jasen.Framework.SchemaProvider;
 
 namespace Jasen.Framework.CodeGenerator
 {

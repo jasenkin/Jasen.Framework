@@ -67,6 +67,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="BasicWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Controls\ThreeWizardMenuControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -83,8 +87,12 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="BasicWindow.xaml.cs">
+      <DependentUpon>BasicWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Common\Applications\ApplicationInfo.cs" />
     <Compile Include="Common\MessengerExtension.cs" />
+    <Compile Include="Common\SystemConfig.cs" />
     <Compile Include="Controls\ThreeWizardMenuControl.xaml.cs">
       <DependentUpon>ThreeWizardMenuControl.xaml</DependentUpon>
     </Compile>
@@ -125,7 +133,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="PresentationLayer\Models\ComboData.cs" />
+    <Compile Include="PresentationLayer\Models\OperationNode.cs" />
     <Compile Include="PresentationLayer\ViewModels\MainViewModel.cs" />
+    <Compile Include="PresentationLayer\ViewModels\OperationNodeViewModel.cs" />
+    <Compile Include="PresentationLayer\ViewModels\SettingViewModel.cs" />
     <Compile Include="PresentationLayer\ViewModels\SystemInfoViewModel.cs" />
     <Compile Include="PresentationLayer\Views\SettingWindow.xaml.cs">
       <DependentUpon>SettingWindow.xaml</DependentUpon>
@@ -167,6 +178,12 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="BusinessLogicLayer\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Jasen.Framework.SchemaProvider\Jasen.Framework.SchemaProvider.csproj">
+      <Project>{4D27D394-3353-4207-A823-CF6286F5AB79}</Project>
+      <Name>Jasen.Framework.SchemaProvider</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
