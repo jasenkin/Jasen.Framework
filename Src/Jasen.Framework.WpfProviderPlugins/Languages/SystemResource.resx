@@ -121,49 +121,58 @@
     <value>_Close</value>
   </data>
   <data name="ConnectionName" xml:space="preserve">
-    <value>连接名称：</value>
+    <value>Connection Name：</value>
   </data>
   <data name="ConnectionStringName" xml:space="preserve">
-    <value>连接字符串：</value>
+    <value>Connection String Name：</value>
   </data>
   <data name="Edit" xml:space="preserve">
     <value>_Edit</value>
   </data>
+  <data name="EixtFullScreen" xml:space="preserve">
+    <value>Eixt FullScreen</value>
+  </data>
   <data name="File" xml:space="preserve">
     <value>_File</value>
+  </data>
+  <data name="FullScreen" xml:space="preserve">
+    <value>FullScreen</value>
   </data>
   <data name="Help" xml:space="preserve">
     <value>_Help</value>
   </data>
+  <data name="Language" xml:space="preserve">
+    <value>Chinese</value>
+  </data>
   <data name="NameSpace" xml:space="preserve">
-    <value>命名空间：</value>
+    <value>NameSpace：</value>
   </data>
   <data name="Open" xml:space="preserve">
     <value>_Open</value>
   </data>
   <data name="OutputDirectory" xml:space="preserve">
-    <value>输出目录：</value>
+    <value>Output Directory：</value>
   </data>
   <data name="ProviderName" xml:space="preserve">
-    <value>提供者名称：</value>
+    <value>Provider Name：</value>
   </data>
   <data name="SettingCancel" xml:space="preserve">
-    <value>取消</value>
+    <value>Cancel</value>
   </data>
   <data name="SettingSave" xml:space="preserve">
-    <value>保存</value>
+    <value>Save</value>
   </data>
   <data name="SystemInfo" xml:space="preserve">
     <value>_SystemInfo</value>
   </data>
   <data name="SystemSetting" xml:space="preserve">
-    <value>系统设置</value>
+    <value>System Setting</value>
   </data>
   <data name="TableViewAttribute" xml:space="preserve">
-    <value>表/视图特性</value>
+    <value>Table/View Attribute</value>
   </data>
   <data name="TemplateName" xml:space="preserve">
-    <value>模板名称：</value>
+    <value>Template Name：</value>
   </data>
   <data name="View" xml:space="preserve">
     <value>_View</value>

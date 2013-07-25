@@ -13,11 +13,16 @@ using Jasen.Framework.SchemaProvider;
 using Jasen.Framework.WpfProviderPlugins.Common;
 using System.IO;
 using System.Diagnostics;
+using System.Globalization;
+using System.Threading;
+using Jasen.Framework.WpfProviderPlugins.Languages;
+using System.ComponentModel;
 
 namespace Jasen.Framework.WpfProviderPlugins.PresentationLayer.ViewModels
 {
     public class MainViewModel : ViewModelBase 
     {
+        private string _language;
         private IDatabaseProvider _provider;
         private ReadOnlyCollection<OperationNodeViewModel> _firstGenerationChildren;
          
@@ -29,6 +34,21 @@ namespace Jasen.Framework.WpfProviderPlugins.PresentationLayer.ViewModels
             this.OpenSystemInfoWindowCommand = new RelayCommand<Window>(OnOpenSystemInfoWindow);
             this.FullScreenCommand = new RelayCommand<Window>(OnFullScreen);
             this.ExitFullScreenCommand = new RelayCommand<Window>(OnExitFullScreen);
+            this.ChangeLanguageCommand = new RelayCommand(ChangeLanguage);
+            this.Language = SystemResource.Language;
+        }
+
+        public string Language
+        {
+            get
+            {
+                return this._language;
+            }
+            set
+            {
+                this._language = value;
+                this.RaisePropertyChanged("Language");
+            }
         }
 
         public ReadOnlyCollection<OperationNodeViewModel> FirstGenerationChildren
@@ -43,8 +63,14 @@ namespace Jasen.Framework.WpfProviderPlugins.PresentationLayer.ViewModels
                 this.RaisePropertyChanged("FirstGenerationChildren");
             }
         }
-
+        
         public string CodeContent
+        {
+            get;
+            private set;
+        }
+
+         public ICommand ChangeLanguageCommand
         {
             get;
             private set;
@@ -96,6 +122,23 @@ namespace Jasen.Framework.WpfProviderPlugins.PresentationLayer.ViewModels
         {
             get;
             private set;
+        }
+
+
+        public void ChangeLanguage()
+        {
+            CultureInfo cultureInfo = Thread.CurrentThread.CurrentCulture;
+
+            string language = "zh-CN";
+
+            if (string.Equals(cultureInfo.Name, "zh-CN"))
+            {
+                language = "en";
+            }
+
+            Thread.CurrentThread.CurrentCulture = new CultureInfo(language);
+
+            this.Language = SystemResource.Language;
         }
 
         public void OnTreeViewItemDoubleClick(OperationNodeViewModel nodeViewModel)

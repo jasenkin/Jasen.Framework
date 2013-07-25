@@ -129,11 +129,20 @@
   <data name="Edit" xml:space="preserve">
     <value>_编辑</value>
   </data>
+  <data name="EixtFullScreen" xml:space="preserve">
+    <value>退出全屏</value>
+  </data>
   <data name="File" xml:space="preserve">
     <value>_文件</value>
   </data>
+  <data name="FullScreen" xml:space="preserve">
+    <value>全屏</value>
+  </data>
   <data name="Help" xml:space="preserve">
     <value>_帮助</value>
+  </data>
+  <data name="Language" xml:space="preserve">
+    <value>英文</value>
   </data>
   <data name="NameSpace" xml:space="preserve">
     <value>命名空间：</value>

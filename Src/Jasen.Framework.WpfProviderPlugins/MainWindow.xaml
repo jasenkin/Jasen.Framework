@@ -44,10 +44,10 @@
             </MenuItem>
 
             <MenuItem Header="{x:Static res:SystemResource.View}">
-                <MenuItem Width="130"  Header="中文" />
-                <MenuItem Width="130"  Header="全屏" Command="{Binding FullScreenCommand}" 
+                <MenuItem Width="130"  Header="{Binding Language, Mode=OneWay}"  Command="{Binding ChangeLanguageCommand}"/>
+                <MenuItem Width="130"  Header="{x:Static res:SystemResource.FullScreen}" Command="{Binding FullScreenCommand}" 
                           CommandParameter="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}"  />
-                <MenuItem Width="130"  Header="退出全屏" Command="{Binding ExitFullScreenCommand}"
+                <MenuItem Width="130"  Header="{x:Static res:SystemResource.EixtFullScreen}" Command="{Binding ExitFullScreenCommand}"
                           CommandParameter="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}"/>
             </MenuItem>
 
