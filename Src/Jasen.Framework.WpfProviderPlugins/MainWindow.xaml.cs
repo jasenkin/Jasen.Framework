@@ -11,6 +11,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Jasen.Framework.WpfProviderPlugins.PresentationLayer.ViewModels;
 
 namespace Jasen.Framework.WpfProviderPlugins
 {
@@ -22,6 +23,23 @@ namespace Jasen.Framework.WpfProviderPlugins
         public MainWindow()
         {
             InitializeComponent();
+
+            this.treeView.TreeViewItemDoubleClick += new Controls.TreeViewItemDoubleClickEventHandler(OnTreeViewItemDoubleClick);
+        }
+
+        private void OnTreeViewItemDoubleClick(PresentationLayer.ViewModels.OperationNodeViewModel nodeViewModel)
+        {
+            if (this.DataContext == null)
+            {
+                return;
+            }
+
+            var viewModel = this.DataContext as MainViewModel;
+
+            if (viewModel != null)
+            {
+                viewModel.OnTreeViewItemDoubleClick(nodeViewModel);
+            }
         }
     }
 }

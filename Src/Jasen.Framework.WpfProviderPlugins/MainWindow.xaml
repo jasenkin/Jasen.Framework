@@ -6,23 +6,16 @@
         xmlns:cmd="clr-namespace:GalaSoft.MvvmLight.Command;assembly=GalaSoft.MvvmLight.Extras.WPF4"
         xmlns:interactivity="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
         xmlns:res="clr-namespace:Jasen.Framework.WpfProviderPlugins.Languages"
+        xmlns:local="clr-namespace:Jasen.Framework.WpfProviderPlugins.Controls"
         xmlns:viewModel="clr-namespace:Jasen.Framework.WpfProviderPlugins.PresentationLayer.ViewModels"     
         Background="{DynamicResource WindowBackgroundBrush}"        
-        SizeToContent="Height"
-        Title="Code generator" MinHeight="330" Width="732" mc:Ignorable="d" d:DesignHeight="514" WindowStyle="SingleBorderWindow" WindowStartupLocation="CenterScreen">
-    
+        Title="Code generator" MinHeight="530" Width="908" mc:Ignorable="d" d:DesignHeight="591" 
+        WindowStyle="SingleBorderWindow" WindowStartupLocation="CenterScreen">
     <Window.DataContext>
         <viewModel:MainViewModel></viewModel:MainViewModel>
     </Window.DataContext>
-    
-    <Grid x:Name="LayoutRoot">
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="Auto"></RowDefinition>
-        </Grid.RowDefinitions>
-
-        <Menu Height="30" Name="menu1" VerticalAlignment="Top" BorderThickness="2"
+    <DockPanel LastChildFill="True"> 
+        <Menu DockPanel.Dock="Top" Height="30" Name="menu1" VerticalAlignment="Top" BorderThickness="2"
               Foreground="White" FontSize="16" FontWeight="Bold">
             <Menu.Background>
                 <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
@@ -37,8 +30,13 @@
             </Menu.BitmapEffect>
 
             <MenuItem Header="{x:Static res:SystemResource.File}" >
-                <MenuItem Width="130"  Header="{x:Static res:SystemResource.Open}"  Name="miOpen" Command="{Binding OpenCommand}" />
-                <MenuItem Width="130"  Header="{x:Static res:SystemResource.Close}" Name="miClose"  Command="{Binding CloseCommand}" />
+                <MenuItem Width="130"  Header="{x:Static res:SystemResource.Open}" 
+                          CommandParameter="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}"
+                          Name="miOpen" Command="{Binding OpenCommand}" />
+                <MenuItem Width="130"  Header="{x:Static res:SystemResource.Close}"  Name="miClose"  Command="{Binding CloseCommand}" />
+                <MenuItem Width="130"  Header="{x:Static res:SystemResource.SystemSetting}" 
+                          CommandParameter="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}"
+                          Name="miSystemSetting" Command="{Binding SystemSettingCommand}" />
                 <MenuItem Width="130"  Header="{x:Static res:SystemResource.File}"  Name="miConnect" />
             </MenuItem>
 
@@ -47,93 +45,28 @@
 
             <MenuItem Header="{x:Static res:SystemResource.View}">
                 <MenuItem Width="130"  Header="中文" Command="{Binding OpenCommand}"  />
+                <MenuItem Width="130"  Header="全屏" Command="{Binding FullScreenCommand}" 
+                          CommandParameter="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}"  />
+                <MenuItem Width="130"  Header="退出全屏" Command="{Binding ExitFullScreenCommand}"
+                          CommandParameter="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}"/>
             </MenuItem>
 
             <MenuItem Header="{x:Static res:SystemResource.Help}">
-                <MenuItem Width="130"  Header="{x:Static res:SystemResource.SystemInfo}"  Command="{Binding OpenSystemInfoWindowCommand}"  />
+                <MenuItem Width="130"  Header="{x:Static res:SystemResource.SystemInfo}"  Command="{Binding OpenSystemInfoWindowCommand}"
+                          CommandParameter="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}"/>
             </MenuItem>
         </Menu>
-        <StackPanel Grid.Row="1">
-            <Border Background="White" Height="1" BorderBrush="Black" BorderThickness="0,0,0,1">
-            </Border>
-
-            <Grid Height="386">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="*" />
-                </Grid.ColumnDefinitions>
-
-                <StackPanel Margin="10,10,10,10" Grid.Column="1">
-                    <ComboBox Height="22" Margin="0,0,0,5" x:Name="cboNames"
-                          DisplayMemberPath="Data"  SelectedIndex="0"
-                          ItemsSource="{Binding Path= ObservComboData}"
-                          SelectedItem="{Binding Path= SelectedTemplate, Mode=TwoWay}">
-                        <interactivity:Interaction.Triggers>
-                            <interactivity:EventTrigger EventName="SelectionChanged">
-                                <cmd:EventToCommand Command="{Binding CboChangedCommand, Mode=OneWay}"
-                                            CommandParameter="{Binding SelectedItem, ElementName=cboNames, Mode=OneWay}"
-                                            MustToggleIsEnabledValue="True"/>
-                            </interactivity:EventTrigger>
-                        </interactivity:Interaction.Triggers>
-                    </ComboBox>
-                    <ListBox Margin="0,60" Height="286" x:Name="listBox" ItemsSource="{Binding Path=ObservComboData, Mode=OneWay}" DisplayMemberPath="Data"  BorderBrush="Black"/>
-                </StackPanel>
-                <StackPanel Margin="10,10,10,10" Grid.Column="0">
-                    <Button Content="Button" Margin="0,0,0,2.5" Height="22" />
-                    <ToggleButton Content="ToggleButton" Margin="0,0,0,5" Height="22" />
-                    <CheckBox Content="CheckBox" IsChecked="True"/>
-                    <CheckBox Content="CheckBox - Disabled" IsEnabled="False" Margin="0,0,0,5" />
-
-                    <RadioButton Content="RadioButton" IsChecked="True"/>
-                    <RadioButton Content="RadioButton" />
-                    <RadioButton Content="RadioButton - Disabled" IsEnabled="False" Margin="0,0,0,5" />
-
-                    <Slider x:Name="slider" Minimum="0" Maximum="100" Value="50" Margin="0,0,0,2.5" />
-                    <ProgressBar Minimum="0" Maximum="100" Value="{Binding ElementName=slider, Path=Value}" Height="22" Margin="0,0,0,5" />
-
-                    <TextBox Text="TextBox" />
-                </StackPanel>
-
-                <TabControl Grid.Column="2">
-                    <TabItem Header="Tab #1">
-                        <Grid>
-                            <Expander IsExpanded="True" Header="Expander" Margin="8,8,8,8">
-                                <TreeView HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Width="Auto" Height="215"  >
-                                    <TreeViewItem Header="TreeViewItem #1"/>
-                                    <TreeViewItem Header="TreeViewItem #2" IsExpanded="True">
-                                        <TreeViewItem Header="TreeViewItem #3"/>
-                                        <TreeViewItem Header="TreeViewItem #4"/>
-                                    </TreeViewItem>
-                                    <TreeViewItem Header="TreeViewItem #5"/>
-                                    <TreeViewItem Header="TreeViewItem #6">
-                                        <TreeViewItem Header="TreeViewItem #7">
-                                            <TreeViewItem Header="TreeViewItem #8"/>
-                                            <TreeViewItem Header="TreeViewItem #9"/>
-                                        </TreeViewItem>
-                                    </TreeViewItem>
-                                </TreeView>
-                            </Expander>
-                        </Grid>
-                    </TabItem>
-                    <TabItem Header="Tab #2">
-                        <StackPanel HorizontalAlignment="Left" VerticalAlignment="Top">
-                            <TextBlock Text="Item #1" />
-                            <TextBlock Text="Item #2" />
-                            <TextBlock Text="Item #3" />
-                            <TextBlock Text="Item #4" />
-                        </StackPanel>
-                    </TabItem>
-
-                </TabControl>
-            </Grid>
-        </StackPanel>
-        <StatusBar Grid.Row="2" Margin="0,0,0,-3" Name="sbMain" Height="28" VerticalAlignment="Bottom">
+        
+        <StatusBar DockPanel.Dock="Bottom" Margin="0,0,0,-3" Name="sbMain" Height="28" VerticalAlignment="Bottom">
             <StatusBarItem Name="sbiContent" Background="DarkGray"></StatusBarItem>
-        </StatusBar>
-
-    </Grid>
-
-
-  
+        </StatusBar>   
+        <Grid >
+             <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="250" />
+                    <ColumnDefinition Width="130*" />
+             </Grid.ColumnDefinitions>
+             <local:DatabaseTreeViewControl x:Name="treeView" Grid.Column="0"></local:DatabaseTreeViewControl>
+             <TextBox   Grid.Column="1" Text="{Binding CodeContent,Mode= OneWay}" VerticalScrollBarVisibility="Auto"></TextBox>
+        </Grid>
+    </DockPanel>
 </Window>

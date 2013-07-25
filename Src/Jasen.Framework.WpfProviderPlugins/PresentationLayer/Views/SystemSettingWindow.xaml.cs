@@ -11,14 +11,14 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace Jasen.Framework.WpfProviderPlugins
+namespace Jasen.Framework.WpfProviderPlugins.PresentationLayer.Views
 {
     /// <summary>
-    /// BasicWindow.xaml 的交互逻辑
+    /// SystemSettingWindow.xaml 的交互逻辑
     /// </summary>
-    public partial class BasicWindow : Window
+    public partial class SystemSettingWindow : Window
     {
-        public BasicWindow()
+        public SystemSettingWindow()
         {
             InitializeComponent();
         }

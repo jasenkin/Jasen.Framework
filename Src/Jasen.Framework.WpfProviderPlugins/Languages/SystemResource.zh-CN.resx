@@ -135,8 +135,14 @@
   <data name="Help" xml:space="preserve">
     <value>_帮助</value>
   </data>
+  <data name="NameSpace" xml:space="preserve">
+    <value>命名空间：</value>
+  </data>
   <data name="Open" xml:space="preserve">
     <value>_打开</value>
+  </data>
+  <data name="OutputDirectory" xml:space="preserve">
+    <value>输出目录：</value>
   </data>
   <data name="ProviderName" xml:space="preserve">
     <value>提供者名称：</value>
@@ -149,6 +155,15 @@
   </data>
   <data name="SystemInfo" xml:space="preserve">
     <value>_系统信息</value>
+  </data>
+  <data name="SystemSetting" xml:space="preserve">
+    <value>系统设置</value>
+  </data>
+  <data name="TableViewAttribute" xml:space="preserve">
+    <value>表/视图特性</value>
+  </data>
+  <data name="TemplateName" xml:space="preserve">
+    <value>模板名称：</value>
   </data>
   <data name="View" xml:space="preserve">
     <value>_视图</value>

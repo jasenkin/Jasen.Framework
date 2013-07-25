@@ -9,7 +9,7 @@ namespace Jasen.Framework.WpfProviderPlugins.PresentationLayer.Models
     public class OperationNode 
     {
         public OperationNode(string name)
-            : this(name, OperationType.Table)
+            : this(name, OperationType.None)
         {
 
         }

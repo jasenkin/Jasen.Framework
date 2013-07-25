@@ -35,6 +35,13 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>
+    </AssemblyOriginatorKeyFile>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="GalaSoft.MvvmLight.Extras.WPF4">
       <HintPath>..\packages\MvvmLightLibs.4.1.27.0\lib\net40\GalaSoft.MvvmLight.Extras.WPF4.dll</HintPath>
@@ -47,6 +54,8 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Windows.Interactivity, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\MvvmLightLibs.4.1.27.0\lib\net40\System.Windows.Interactivity.dll</HintPath>
     </Reference>
@@ -67,7 +76,14 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Page Include="BasicWindow.xaml">
+    <Compile Include="Common\WindowExtension.cs" />
+    <Compile Include="Controls\DatabaseTreeViewControl.xaml.cs">
+      <DependentUpon>DatabaseTreeViewControl.xaml</DependentUpon>
+    </Compile>
+    <Content Include="Template\Template.template">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Page Include="Controls\DatabaseTreeViewControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -86,9 +102,6 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="BasicWindow.xaml.cs">
-      <DependentUpon>BasicWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Common\Applications\ApplicationInfo.cs" />
     <Compile Include="Common\MessengerExtension.cs" />
@@ -122,6 +135,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="PresentationLayer\Views\SystemSettingWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Themes\Theme.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -132,17 +149,21 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="PresentationLayer\Models\ComboData.cs" />
     <Compile Include="PresentationLayer\Models\OperationNode.cs" />
     <Compile Include="PresentationLayer\ViewModels\MainViewModel.cs" />
     <Compile Include="PresentationLayer\ViewModels\OperationNodeViewModel.cs" />
     <Compile Include="PresentationLayer\ViewModels\SettingViewModel.cs" />
     <Compile Include="PresentationLayer\ViewModels\SystemInfoViewModel.cs" />
+    <Compile Include="PresentationLayer\ViewModels\SystemSettingViewModel.cs" />
+    <Compile Include="PresentationLayer\ViewModels\TreeViewModel.cs" />
     <Compile Include="PresentationLayer\Views\SettingWindow.xaml.cs">
       <DependentUpon>SettingWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="PresentationLayer\Views\SystemInfoWindow.xaml.cs">
       <DependentUpon>SystemInfoWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PresentationLayer\Views\SystemSettingWindow.xaml.cs">
+      <DependentUpon>SystemSettingWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
@@ -169,6 +190,9 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <Content Include="Data\SysData.db3">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -178,6 +202,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="BusinessLogicLayer\" />
+    <Folder Include="Plugins\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Jasen.Framework.SchemaProvider\Jasen.Framework.SchemaProvider.csproj">

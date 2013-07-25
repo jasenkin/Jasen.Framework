@@ -1,0 +1,28 @@
+﻿using System;
+using System.Data;
+using System.Text;
+using System.Collections;
+using System.Collections.Generic;
+using System.Globalization;
+using System.Reflection;
+
+namespace @NameSpace
+{  
+    @TableAttribute
+    [Serializable()]
+    public class @ClassName : ModelBase
+    {
+        public @ClassName()        
+        {                   
+        }
+
+        #region Member Variables
+        @MemberVariables  
+        #endregion //Member Variables
+
+        #region Properties
+        @Properties
+        #endregion //Properties
+   
+    }
+}

@@ -2327,7 +2327,7 @@
             </Setter.Value>
         </Setter>
     </Style>
-    <Style d:IsControlPart="True" TargetType="{x:Type TreeViewItem}">
+    <Style d:IsControlPart="True" TargetType="{x:Type TreeViewItem}">  
         <Style.Triggers>
             <Trigger Property="IsSelected" Value="True">
                 <Setter Property="Foreground">

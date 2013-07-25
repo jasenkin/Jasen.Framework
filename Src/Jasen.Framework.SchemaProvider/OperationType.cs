@@ -9,6 +9,7 @@ namespace Jasen.Framework.SchemaProvider
     {
         Procedure,
         Table,
-        View
+        View,
+        None
     }
 }

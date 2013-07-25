@@ -43,26 +43,35 @@
         <StackPanel Margin="10,0,10,0" Grid.Row="2" Grid.Column="1">
             <ComboBox Height="22" Margin="0,0,0,0" x:Name="cboConnectionAliaNames"
                           DisplayMemberPath="Name"  SelectedIndex="0"
+                          SelectedValue=""
+                          Text="{Binding Path= SelectedDataSourceText, Mode=TwoWay}"
                           ItemsSource="{Binding Path= DataSources}"
-                          SelectedItem="{Binding Path= SelectedDataSource, Mode=TwoWay}">
+                          SelectedItem="{Binding Path= SelectedDataSource, Mode=TwoWay}" IsEditable="True">
                 <interactivity:Interaction.Triggers>
                     <interactivity:EventTrigger EventName="SelectionChanged">
-                        <cmd:EventToCommand Command="{Binding SelectedDataSource, Mode=OneWay}"
+                        <cmd:EventToCommand Command="{Binding ConnectionNameChangedCommand, Mode=OneWay}"
                                             CommandParameter="{Binding SelectedItem, ElementName=cboConnectionAliaNames, Mode=OneWay}"
                                             MustToggleIsEnabledValue="True"/>
                     </interactivity:EventTrigger>
                 </interactivity:Interaction.Triggers>
             </ComboBox> 
         </StackPanel>
-        <RichTextBox Margin="10,0,10,0" Grid.Row="3" Grid.Column="1" />
+        <TextBox Margin="10,0,10,0" Grid.Row="3" Grid.Column="1"  TextWrapping="Wrap"
+                  AcceptsReturn="True"
+                  VerticalScrollBarVisibility="Visible"
+                  Text="{Binding ConnectionString, Mode=TwoWay}"  />
         <Grid Grid.Row="6" Grid.ColumnSpan="2">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="280"></ColumnDefinition>
                 <ColumnDefinition Width="130"></ColumnDefinition>
                 <ColumnDefinition Width="130"></ColumnDefinition>
             </Grid.ColumnDefinitions>
-            <Button  Grid.Column="1" Command="{Binding SaveCommand}"  Content="{x:Static res:SystemResource.SettingSave}" Width="100" Height="26"/>
-            <Button  Grid.Column="2" Command="{Binding CancelCommand}"  Content="{x:Static res:SystemResource.SettingCancel}" Width="100" Height="26" />
+            <Button  Grid.Column="1" Command="{Binding SaveCommand}"
+                     CommandParameter="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}"
+                     Content="{x:Static res:SystemResource.SettingSave}" Width="100" Height="26"/>
+            <Button  Grid.Column="2" Command="{Binding CancelCommand}" 
+                     CommandParameter="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}"
+                     Content="{x:Static res:SystemResource.SettingCancel}" Width="100" Height="26" />
         </Grid>
     </Grid>
 </Window>
