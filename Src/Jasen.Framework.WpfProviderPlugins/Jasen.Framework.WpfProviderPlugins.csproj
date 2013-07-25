@@ -80,6 +80,9 @@
     <Compile Include="Controls\DatabaseTreeViewControl.xaml.cs">
       <DependentUpon>DatabaseTreeViewControl.xaml</DependentUpon>
     </Compile>
+    <Content Include="Plugins\Jasen.Framework.SqliteSchemaProvider.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="Template\Template.template">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -202,7 +205,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="BusinessLogicLayer\" />
-    <Folder Include="Plugins\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Jasen.Framework.SchemaProvider\Jasen.Framework.SchemaProvider.csproj">
@@ -211,6 +213,9 @@
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PreBuildEvent>xcopy /r /y  $(SolutionDir)\Libs\SQLite.Interop.dll</PreBuildEvent>
+  </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

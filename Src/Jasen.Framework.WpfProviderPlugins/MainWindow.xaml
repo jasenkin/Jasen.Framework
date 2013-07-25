@@ -44,7 +44,7 @@
             </MenuItem>
 
             <MenuItem Header="{x:Static res:SystemResource.View}">
-                <MenuItem Width="130"  Header="中文" Command="{Binding OpenCommand}"  />
+                <MenuItem Width="130"  Header="中文" />
                 <MenuItem Width="130"  Header="全屏" Command="{Binding FullScreenCommand}" 
                           CommandParameter="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}"  />
                 <MenuItem Width="130"  Header="退出全屏" Command="{Binding ExitFullScreenCommand}"
