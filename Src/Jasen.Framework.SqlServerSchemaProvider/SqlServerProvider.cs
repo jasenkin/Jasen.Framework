@@ -138,7 +138,7 @@ namespace Jasen.Framework.SqlServerSchemaProvider
    
             Dictionary<string, string> identityDictionary = new Dictionary<string, string>();
            
-            DataTable identityTable = this.Database.CreateViewCommandExecutor().ExecuteDataTable(sql, false);
+            DataTable identityTable = this.Database.ExecuteDataTable(sql, false);
 
                 if (identityTable == null || identityTable.Columns.Count <= 0)
                 {

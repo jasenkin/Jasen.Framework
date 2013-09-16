@@ -48,6 +48,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AttributeUtility.cs" />
+    <Compile Include="Core\Database.cs" />
+    <Compile Include="Core\ExceptionManager.cs" />
+    <Compile Include="Core\IDatabase.cs" />
     <Compile Include="DataSourceSetting.cs" />
     <Compile Include="OperationType.cs" />
     <Compile Include="CodeProviders\OledbConverter.cs" />
@@ -55,20 +58,7 @@
     <Compile Include="CodeProviders\SqliteTypeConverter.cs" />
     <Compile Include="CodeProviders\SqlServerConverter.cs" />
     <Compile Include="CodeProviders\CodeProvider.cs" />
-    <Compile Include="Core\CommandExecutor\CommandExecutor.cs" />
-    <Compile Include="Core\CommandExecutor\ITableCommandExecutor.cs" />
-    <Compile Include="Core\CommandExecutor\IViewCommandExecutor.cs" />
     <Compile Include="Core\DatabaseConfig.cs" />
-    <Compile Include="Core\Databases\Database.cs" />
-    <Compile Include="Core\Databases\IDatabase.cs" />
-    <Compile Include="Core\Exception\CommandEventArgs.cs" />
-    <Compile Include="Core\Exception\CommandException.cs" />
-    <Compile Include="Core\Exception\CommandOperation.cs" />
-    <Compile Include="Core\Exception\ConnectionEventArgs.cs" />
-    <Compile Include="Core\Exception\ConnectionException.cs" />
-    <Compile Include="Core\Exception\ConnectionOperation.cs" />
-    <Compile Include="Core\Exception\DatabaseHandler.cs" />
-    <Compile Include="Core\Exception\ExceptionManager.cs" />
     <Compile Include="PluginManager.cs" />
     <Compile Include="ProviderAttribute.cs" />
     <Compile Include="ProviderInfo.cs" />

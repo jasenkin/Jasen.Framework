@@ -1,0 +1,21 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+
+namespace Jasen.Framework
+{
+    [Serializable]
+    public enum OrderDirection
+    {
+        /// <summary>
+        /// 
+        /// </summary>
+        Ascend,
+
+        /// <summary>
+        /// 
+        /// </summary>
+        Descend
+    }
+}

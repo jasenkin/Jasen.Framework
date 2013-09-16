@@ -267,7 +267,7 @@ namespace Jasen.Framework.WpfProviderPlugins.PresentationLayer.ViewModels
         
         private void OnSaveCompleted(IDatabaseProvider provider)
         {
-            this._provider = provider;
+            this._provider = provider ;
             this._provider.Init();
 
             OperationNode tableParentNode = CreateParentNode("Tables", OperationType.Table, this._provider.TableNames);

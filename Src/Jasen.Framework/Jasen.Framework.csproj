@@ -1,0 +1,135 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{CADBEAC7-3B1E-4BE2-97B4-EC8AFD1B6BCE}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Jasen.Framework</RootNamespace>
+    <AssemblyName>Jasen.Framework</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="MySql.Data">
+      <HintPath>..\Libs\MySql.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.OracleClient" />
+    <Reference Include="System.Data.SQLite">
+      <HintPath>..\Libs\System.Data.SQLite.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Core\Attributes\AssociationAttribute.cs" />
+    <Compile Include="Core\Attributes\AssociationType.cs" />
+    <Compile Include="Core\Attributes\ColumnAttribute.cs" />
+    <Compile Include="Core\Attributes\ManyToManyAttribute.cs" />
+    <Compile Include="Core\Attributes\ManyToOneAttribute.cs" />
+    <Compile Include="Core\Attributes\OneToManyAttribute.cs" />
+    <Compile Include="Core\Attributes\OneToOneAttribute.cs" />
+    <Compile Include="Core\Attributes\ParameterAttribute.cs" />
+    <Compile Include="Core\Attributes\TableAttribute.cs" />
+    <Compile Include="Core\Providers\SqlServer2000Provider.cs" />
+    <Compile Include="Core\SqlGenerators\SqlServer2000SqlGenerator.cs.cs" />
+    <Compile Include="Infrastructure\DbProviderCache.cs" />
+    <Compile Include="Core\Databases\MySqlDatabase.cs" />
+    <Compile Include="Core\Databases\SqliteDatabase.cs" />
+    <Compile Include="Core\IdentityPrimaryKeyInfo.cs" />
+    <Compile Include="Infrastructure\IStoreProcedure.cs" />
+    <Compile Include="DbContext.cs" />
+    <Compile Include="Infrastructure\ITable.cs" />
+    <Compile Include="Infrastructure\IView.cs" />
+    <Compile Include="Infrastructure\Model.cs" />
+    <Compile Include="Infrastructure\MetaData\IdentityKey.cs" />
+    <Compile Include="Infrastructure\MetaData\PrimaryKey.cs" />
+    <Compile Include="Infrastructure\MetaData\ProcedureParameter.cs" />
+    <Compile Include="Infrastructure\MetaData\ForeignKey.cs" />
+    <Compile Include="Infrastructure\PropertyElement.cs" />
+    <Compile Include="Infrastructure\PropertyType.cs" />
+    <Compile Include="Core\Reflection\EntityTransfer.cs" />
+    <Compile Include="Core\Databases\Database.cs" />
+    <Compile Include="Core\Databases\IDatabase.cs" />
+    <Compile Include="Core\Databases\OleDatabase.cs" />
+    <Compile Include="Core\Databases\OracleDatabase.cs" />
+    <Compile Include="Core\Databases\SqlServerDatabase.cs" />
+    <Compile Include="Core\ExceptionManager.cs" />
+    <Compile Include="Core\PagingArg.cs" />
+    <Compile Include="Core\OracleCursor.cs" />
+    <Compile Include="Core\Attributes\ProcedureAttribute.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Core\PropertyAssociation.cs" />
+    <Compile Include="Core\Reflection\AttributeUtility.cs" />
+    <Compile Include="Core\Reflection\ColumnAttributeCollection.cs" />
+    <Compile Include="Core\Reflection\ColumnPropertyCollection.cs" />
+    <Compile Include="Core\Reflection\EntityTransferGeneric.cs" />
+    <Compile Include="Core\Reflection\IdentityUtility.cs" />
+    <Compile Include="Core\Reflection\KeyUtility.cs" />
+    <Compile Include="Resources\MsgResource.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MsgResource.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Core\SqlGenerators\ISqlGenerator.cs" />
+    <Compile Include="Core\SqlGenerators\MySqlGenerator.cs" />
+    <Compile Include="Core\SqlGenerators\OledbSqlBuilder.cs" />
+    <Compile Include="Core\SqlGenerators\OracleSqlGenerator.cs" />
+    <Compile Include="Core\Order.cs" />
+    <Compile Include="Core\OrderDirection.cs" />
+    <Compile Include="Core\SqlGenerators\SqlGenerator.cs" />
+    <Compile Include="Core\SqlGenerators\SqliteSqlGenerator.cs" />
+    <Compile Include="Core\SqlCommandParameter.cs" />
+    <Compile Include="Core\SqlGenerators\SqlServerSqlGenerator.cs" />
+    <Compile Include="Core\Providers\MySqlProvider.cs" />
+    <Compile Include="Core\Providers\OracleProvider.cs" />
+    <Compile Include="Core\Providers\SqlServerProvider.cs" />
+    <Compile Include="Core\Providers\OledbProvider.cs" />
+    <Compile Include="Core\Providers\SqliteProvider.cs" />
+    <Compile Include="Core\Providers\DatabaseProvider.cs" />
+    <Compile Include="Infrastructure\StringExtension.cs" />
+    <Compile Include="Infrastructure\TypeExtension.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\MsgResource.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>MsgResource.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\MsgResource.zh-cn.resx" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
