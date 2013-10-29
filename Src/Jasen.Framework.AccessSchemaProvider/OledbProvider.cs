@@ -5,6 +5,7 @@ using System.Data;
 using System.Data.OleDb;
 using System.Linq;
 using Jasen.Framework.MetaData;
+using Jasen.Framework.CodeGenerator;
 
 namespace Jasen.Framework.AccessSchemaProvider
 { 
@@ -190,5 +191,9 @@ namespace Jasen.Framework.AccessSchemaProvider
             return tableColumns;
         }
          
+        public override string GetDataType(string databaseType)
+        {
+            return OledbConverter.ToCSharpType(databaseType);
+        } 
     }
 }

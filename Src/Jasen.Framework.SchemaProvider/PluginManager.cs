@@ -71,7 +71,12 @@ namespace Jasen.Framework.SchemaProvider
             if (!File.Exists(filePath))
             {
                 return false;
-            } 
+            }
+
+            if (!filePath.EndsWith(".dll",StringComparison.CurrentCultureIgnoreCase))
+            {
+                return false;
+            }
 
             Type[] types = Assembly.LoadFile(filePath).GetTypes();
             IDatabaseProvider provider;

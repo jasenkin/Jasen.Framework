@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using Jasen.Framework.MetaData;
 using Jasen.Framework.SchemaProvider;
+using Jasen.Framework.CodeGenerator;
 
 namespace Jasen.Framework
 {
@@ -23,7 +24,7 @@ namespace Jasen.Framework
             {
                 if(this._codeProvider==null)
                 {
-                    this._codeProvider =new CodeProvider();
+                    this._codeProvider = new CodeProvider();
                 }
 
                 return this._codeProvider;
@@ -67,11 +68,17 @@ namespace Jasen.Framework
         { 
             this.TableNames = this.GetTableNames()?? new List<string>();
             this.ViewNames = this.GetViewNames() ?? new List<string>();
+            this.ProcedureParameters = this.GetProcedureParameters() ?? new List<ProcedureParameter>();
+
+            foreach (var param in this.ProcedureParameters)
+            {
+                param.ParameterType = GetDataType(param.ParameterType);
+            }
+
             this.ProcedureNames = this.GetProcedureNames() ?? new List<string>();
             this.PrimaryKeys = this.GetAllPrimaryKeys() ?? new List<PrimaryKey>();
             this.ForeignKeys = this.GetAllForeignKeys() ?? new List<ForeignKey>();
             this.IdentityKeys = this.GetAllIdentityKeys() ?? new List<IdentityKey>();
-            this.ProcedureParameters = this.GetProcedureParameters() ?? new List<ProcedureParameter>();
             this.IsInited = true;
         }
 
@@ -103,7 +110,7 @@ namespace Jasen.Framework
 
             foreach (DataColumn column in tempTable.Columns)
             {
-                tableColumn=new TableColumn();
+                tableColumn = new TableColumn();
                 tableColumn.TableName = tableNameOrViewName;
                 tableColumn.ColumnName = column.ColumnName;
                 tableColumn.DataType = GetDataType(column);
@@ -151,7 +158,7 @@ namespace Jasen.Framework
             return procedures;
         }
 
-        public static string GetDataType(DataColumn column)
+        public virtual string GetDataType(DataColumn column)
         {
             string dataType = "";
             switch (column.DataType.Name)
@@ -180,6 +187,11 @@ namespace Jasen.Framework
             }
 
             return dataType;
+        }
+
+        public virtual string GetDataType(string databaseType)
+        {
+            return SqlServerConverter.ToCSharpType(databaseType);
         }
 
         public abstract IList<string> GetTableNames();

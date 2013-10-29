@@ -5,6 +5,7 @@ using System.Text;
 using System.Data;
 using Jasen.Framework.MetaData;
 using Jasen.Framework.SchemaProvider;
+using Jasen.Framework.CodeGenerator;
 
 namespace Jasen.Framework.OracleSchemaProvider
 {  
@@ -87,7 +88,7 @@ namespace Jasen.Framework.OracleSchemaProvider
 
         public override IList<string> GetProcedureNames()
         {
-            return this.GetProcedureParameters().Select(p=>p.ProcedureName).ToList();
+            return this.GetProcedureParameters().Select(p=>p.ProcedureName).Distinct().ToList();
         }
  
         public override IList<PrimaryKey> GetAllPrimaryKeys()
@@ -150,8 +151,8 @@ namespace Jasen.Framework.OracleSchemaProvider
         {
             return new List<IdentityKey>();
         }
-         
-        public virtual List<ProcedureParameter> GetProcedureParameters()
+
+        public override List<ProcedureParameter> GetProcedureParameters()
         {
             string sql = @"select decode(t.package_name,null,t.object_name,t.package_name || '.' || t.object_name) || t.overload ProcedureName, " +
                 " t.argument_name ParameterName,t.data_length Length,t.in_out InOut,t.data_type ParameterType " +
@@ -170,10 +171,16 @@ namespace Jasen.Framework.OracleSchemaProvider
                 parameter.ParameterName = row["ParameterName"].ToString();
                 parameter.ParameterType = row["ParameterType"].ToString();
                 parameter.Length = row["Length"].ToString();
-                parameter.IsOutput = row["IsOutput"].ToString();
+                parameter.IsOutput = row["InOut"].ToString();
                 procedureParameters.Add(parameter);
             }
             return procedureParameters;
         }
+
+        public override string GetDataType(string databaseType)
+        {
+            return OracleConverter.ToCSharpType(databaseType);
+        }
+
     }
 }

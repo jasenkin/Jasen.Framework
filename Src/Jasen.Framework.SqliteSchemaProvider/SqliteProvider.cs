@@ -253,6 +253,10 @@ namespace Jasen.Framework.SqliteSchemaProvider
 
             return tableColumns;
         }
-         
+
+        public override string GetDataType(string databaseType)
+        {
+            return SqliteTypeConverter.ToCSharpType(databaseType);
+        }
     }
 }

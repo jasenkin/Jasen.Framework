@@ -61,7 +61,7 @@
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(78, 23);
             this.btnSave.TabIndex = 4;
-            this.btnSave.Text = "保存";
+            this.btnSave.Text = "连接";
             this.btnSave.UseVisualStyleBackColor = true;
             // 
             // btnCancel

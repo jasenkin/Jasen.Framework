@@ -80,7 +80,19 @@
     <Compile Include="Controls\DatabaseTreeViewControl.xaml.cs">
       <DependentUpon>DatabaseTreeViewControl.xaml</DependentUpon>
     </Compile>
+    <Content Include="Plugins\Jasen.Framework.AccessSchemaProvider.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Plugins\Jasen.Framework.OracleSchemaProvider.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="Plugins\Jasen.Framework.SqliteSchemaProvider.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Plugins\Jasen.Framework.SqlServer2000SchemaProvider.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Plugins\Jasen.Framework.SqlServerSchemaProvider.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Template\Template.template">

@@ -42,7 +42,14 @@ namespace Jasen.Framework.SchemaProvider
 
         public virtual string ToFieldName(string columnName)
         {
-            return "_" + PascalCaseToCamelCase(ToPropertyName(columnName));
+            string fieldName = PascalCaseToCamelCase(ToPropertyName(columnName));
+
+            if(string.Equals(fieldName,"ID",StringComparison.CurrentCultureIgnoreCase))
+            {
+                fieldName = "id";
+            }
+
+            return "_" + fieldName;
         }
 
         public virtual string ToPropertyName(string columnName)
@@ -63,7 +70,7 @@ namespace Jasen.Framework.SchemaProvider
                 content.Append(CreateTabSpaces(2) + "private " + column.DataType + " " + this.ToFieldName(column.ColumnName) + ";\n");
             }
             return content.ToString();
-        }
+        } 
 
         public string MapPropertiesBlock(IEnumerable<TableColumn> columns, bool addAttribute)
         {
@@ -135,7 +142,7 @@ namespace Jasen.Framework.SchemaProvider
                 content.Append("[Parameter(Name = \"" + parameterName + "\"," + direction + ")]\n");
 
                 AppendProperty(false, content, parameter.ParameterType, parameterName);
-            }
+            } 
 
             return content.ToString();
         }
@@ -265,26 +272,6 @@ namespace Jasen.Framework.SchemaProvider
         }
   
         public static readonly string EmptyDataEntity = "Result";
-
-        public static string GetDataType(DataColumn column)
-        {
-            string dataType = "";
-            switch (column.DataType.Name)
-            {
-                case "Int32": dataType = "int";
-                    break;
-                case "String": dataType = "string";
-                    break;
-                case "Boolean": dataType = "bool";
-                    break;
-                case "DateTime": dataType = "DateTime?";
-                    break;
-                default: dataType = column.DataType.Name;
-                    break;
-            }
-
-            return dataType;
-        }
 
         /// <summary>
         /// 

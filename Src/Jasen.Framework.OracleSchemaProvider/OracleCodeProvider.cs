@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Jasen.Framework.SchemaProvider;
+using Jasen.Framework.CodeGenerator;
 
 namespace Jasen.Framework.OracleSchemaProvider
 {
@@ -42,7 +43,7 @@ namespace Jasen.Framework.OracleSchemaProvider
             return BlockCaseToPascalCase(name);
         }
 
-        public virtual string ToPropertyName(string parameterName)
+        public override string ToPropertyName(string parameterName)
         {
             FilterPrefix(ref parameterName);
             return BlockCaseToPascalCase(parameterName);
@@ -55,7 +56,7 @@ namespace Jasen.Framework.OracleSchemaProvider
                 return;
             }
 
-            string[] removedChars = new string[] { "PI_", "PO_", "P_", "X_" };
+            string[] removedChars = new string[] { "PI_", "PO_", "P_", "X_", "PIO_" };
             foreach (string removedChar in removedChars)
             {
                 if (parameterName.StartsWith(removedChar))
